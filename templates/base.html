@@ -1,0 +1,110 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+    <title>Detailing store</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-4.6.0-dist/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/master.css" %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="wrapper flex-grow-1">
+  {% include 'messages.html' %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-line">
+    <img id="bg" src="{% static "media/ds_logo.png" %}" alt="">
+      <a class="navbar-brand ml-2" id="brand" href="{% url 'home_page' %}">
+      Detailing store</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li>
+              <a style="text-decoration: none" href="{% url 'about_us' %}">
+             <button type="button" class="btn btn-outline-light btn-sm mr-1 mt-1">About us</button>
+              </a>
+           </li>
+             <li>
+             <a style="text-decoration: none" href="{% url 'home_page' %}">
+                <button type="button" class="btn btn-outline-light btn-sm mr-1 mt-1">Products</button>
+             </a>
+           </li>
+           <li>
+             <a style="text-decoration: none" href="{% url 'contact_us' %}">
+             <button type="button" class="btn btn-outline-light btn-sm mt-1">Contact us</button>
+             </a>
+           </li>
+          </ul>
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+            <a class="nav-link p-0 mt-1 mr-3 text-light" href="{% url 'shopping_basket:order_summary' %}">
+                <i class="fa fa-shopping-cart mr-1"></i>£ {{ total_price }}</a>
+            </li>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+           <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-outline-light btn-sm">@ {{ request.user }}</button>
+            </a>
+            <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'shopping_basket:orders_view' %}">Orders</a>
+{#              <a class="dropdown-item" href="#">Transactions</a>#}
+              <a class="dropdown-item" href="{% url 'accounts:address_view' %}">Addresses</a>
+              <a class="dropdown-item" href="{% url 'accounts:profile_view' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'accounts:logout' %}">Log out</a>
+            </div>
+          </li>
+          </ul>
+          </div>>
+            </ul>
+            {% else %}
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link p-0 pr-1 pt-1" href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-light btn-sm">Log in</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-0 pt-1" href="{% url 'accounts:signup' %}"><button type="button" class="btn btn-outline-light btn-sm">Sign up</button></a>
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+    </nav>
+{#    </div>#}
+<div class="container-fluid mt-3">
+    <div class="row">
+     <div class="col-sm-2 mb-1">
+         {% block content_one %}
+         {% endblock content_one %}
+      </div>
+       <div class="col">
+          {% block content_two %}
+          {% endblock %}
+       </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+  <footer class="footer py-3">
+    <span class="text-muted ml-4">© 2021 Detailing store</span>
+</footer>
+    </div>
+
+  <script type="text/javascript" src="{% static 'js/jquery/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'css/bootstrap-4.6.0-dist/js/bootstrap.min.js' %}"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script  src="{% static 'js/jquery/script.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+   {% block script %}
+   {% endblock script %}
+</body>
+</html>
