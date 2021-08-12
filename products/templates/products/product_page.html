@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block content_one %}
+<nav class='animated bounceInDown' id="sidebar-nav">
+    <ul>
+        <li class='sub-menu'>
+            <a id='type' class="text-center" href="{% url 'home_page' %}">Filter reset<div class=''></div></a>
+        </li>
+        <li class='sub-menu'>
+            <a id='type'>Type<div class='fa fa-caret-down right'></div></a>
+            <ul>
+            <form method="GET">
+                {% for item in product_types %}
+                    <li><a><button type="submit" value="{{ item }}" name="prod_type">{{ item }}</button></a></li>
+                {% endfor %}
+            </form>
+            </ul>
+        </li>
+        <li class='sub-menu'>
+            <a id='type_one'>Brand<div class='fa fa-caret-down right'></div></a>
+            <ul>
+            <form method="GET">
+                {% for brand in product_brands %}
+                    <li><a><button type="submit" value="{{ brand }}" name="prod_brand">{{ brand }}</button></a></li>
+                {% endfor %}
+            </form>
+            </ul>
+        </li>
+    </ul>
+</nav>
+{% endblock content_one %}
+
+{% block content_two %}
+<div class="container">
+    {{ message }}
+       {% for product in products %}
+        <div class="row right-col p-3 mb-2">
+        <img class="img-thumbnail" id="img-size" src="{{ product.photo.url }}" alt=''>
+        <div class="col" id="">
+        <p class="">{{ product.name }}</p>
+        <p class="">Brand: {{ product.product_brand }}</p>
+        <p class="">Description:<br>{{ product.description }}</p>
+        <p class="text-monospace">Price: £{{ product.price }}</p>
+        <a href="{% url 'shopping_basket:order_summary' %}" class="btn btn-warning">Go to basket</a>
+        <a href="{% url 'shopping_basket:add_to_basket' product.product_id %}" class="btn btn-primary">Add to basket</a>
+        </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content_two %}
