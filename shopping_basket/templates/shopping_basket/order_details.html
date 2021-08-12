@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content_two %}
+  <div class="right-col p-4">
+  <h4 class="text-uppercase mb-3 pb-2 mt-2 border-bottom">Order details</h4>
+
+    {% for field in order %}
+    <ul class="list-unstyled">
+        <li class="mb-3">Order date: <span class="border p-1" style="background-color: #b0171e">{{ field.date_ordered | date:"d/m/Y H:i" }}
+        </span></li>
+        <li class="mb-3">Order ref: <span class="border p-1" style="background-color: #b0171e">{{ field.ref_code }}</span></li>
+        <li class="mb-3">PayPal email: <span class="border p-1" style="background-color: #b0171e">{{ field.payment_email }}</span></li>
+        <li class="mb-3">Payment ref: <span class="border p-1" style="background-color: #b0171e">{{ field.payment_id }}</span></li>
+        <li>Total paid: <span class="border p-1" style="background-color: #b0171e">£{{ field.total_paid }}</span></li>
+    </ul>
+     <hr class="border-bottom">
+    <table class="table table-bordered" style="width: 100%; text-align: center;">
+        <tr class="bg-primary text-light">
+            <th>#</th>
+            <th>Product name</th>
+            <th>Product price</th>
+        </tr>
+         {% for item in field.items.all %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ item }}</td>
+            <td>£{{ item.product.price }} (+20% VAT)</td>
+        </tr>
+    {% endfor %}
+{% endfor %}
+
+  </table>
+  </div>
+{% endblock content_two %}

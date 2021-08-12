@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content_one %}
+
+{% endblock %}
+
+{% block content_two %}
+
+ <div class="container right-col">
+   <div class="row pt-3 pl-5 pr-5">
+    <h4 class="text-uppercase mb-3 pb-2">Your shopping basket</h4>
+    <table class="table text-center">
+      <tr class="text-center">
+        <th class="">#</th>
+        <th class="">Item</th>
+        <th class="">Quantity</th>
+        <th class="">Price</th>
+      </tr>
+      {% for item in order.get_basket_items %}
+        <tr style="color: #fefefe">
+          <td>{{ forloop.counter }}</td>
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.product.order.quantity }}</td>
+          <td>£ {{ item.product.price }}
+          <span class="float-right">
+              <a href="{% url 'shopping_basket:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" onclick="return confirm_delete();">
+                <i class="fas fa-trash"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan= 3 style="color: #fefefe"> You have not added any items yet.</td>
+        <td></td>
+        </tr>
+      {% endfor %}
+      <tr>
+          {% if order.get_basket_total != None %}
+         <td></td>
+         <td></td>
+         <td>
+          <strong class="pull-right" style="color: #fefefe; border-top: none;">Total:</strong>
+        </td>
+          <td style="color: #fefefe;">£ {{ order.get_basket_sum }}</td>
+     </tr>
+     <tr>
+         <td></td>
+         <td></td>
+         <td>
+          <strong class="pull-right" style="color: #fefefe; border-top: none;">VAT @ 20%:</strong>
+        </td>
+        <td style="color: #fefefe;">£ {{ order.get_basket_vat }}</td>
+     </tr>
+      <tr>
+      <td></td>
+
+        <td colspan=2>
+          <strong class="pull-right" style="color: #fefefe; border-top: none;">Order Total:</strong>
+        </td>
+        <td colspan=1 style="color: #fefefe">
+          <strong style="color: #fefefe">£ {{ order.get_basket_total }}</strong>
+        </td>
+        {% endif %}
+      </tr>
+    </table>
+
+      <div class="container mb-3">
+        <div>
+          <a href="{% url 'home_page' %}" class="btn btn-warning pull-left">
+            {% if order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
+          </a>
+        </div>
+        <div class="float-right">
+          {% if order.get_basket_items %}
+            <a href="{% url 'shopping_basket:checkout' id %}" class="pull-right btn btn-primary">Proceed To Checkout</a>
+          {% endif %}
+        </div>
+      </div>
+
+   </div>
+ </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script>
+  function confirm_delete(){
+    return confirm("Do you want to remove this item from cart?");
+  }
+  </script>
+{% endblock scripts %}

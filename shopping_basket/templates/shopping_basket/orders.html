@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content_two %}
+  <div class="right-col p-4">
+  <h4 class="text-uppercase mb-3 pb-2 mt-2 border-bottom">Orders</h4>
+  <table class="table table-borderless" id="orders-style">
+    <tr>
+        <th>#</th>
+        <th>Order number</th>
+        <th>Order date/time</th>
+        <th>Order status</th>
+        <th>Paid(Yes/No)</th>
+    </tr>
+      {% for item in orders %}
+     <tr>
+       <td>{{ forloop.counter }}</td>
+       <td><a href="{% url 'shopping_basket:order_details' item.ref_code %}" style="color: white">{{ item }}</a></td>
+       <td>{{ item.date_ordered | date:"d/m/Y H:i" }}</td>
+       {% if item.is_ordered %}
+       <td>Ordered</td>
+       {% else %}
+       <td>In progress</td>
+       {% endif %}
+       {% if item.paid %}
+       <td>Yes</td>
+       {% else %}
+       <td>No</td>
+       {% endif %}
+     </tr>
+      {% endfor %}
+  </table>
+  </div>
+{% endblock content_two %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content_two %}
+    <div class="container right-col">
+    <section>
+      <div class="row p-3" id="tablerow">
+      <div class="col-md-4 col-xs-12">
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <h5>Enter Voucher Code Below<br><small>If multiple, separate each with comma</small></h5>
+            <div>
+              <form action="." method="post">
+                {% csrf_token %}
+                  <label for="voucher_code"></label><input type="text" name="voucher_codes" class="form-control" id="voucher_code" required>
+                <input type="hidden"  name="order_id" value="{{ order.id }}">
+                <br>
+                <span>
+                    <button type="submit" class="btn pull-right" style="background-color: #ffc107;">Apply Voucher</button>
+                </span>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-xs-12">
+        <table class="table table-borderless">
+          <tr>
+            <td><h4>Order Summary</h4></td>
+          </tr>
+          <tr>
+            <td>
+              {% for item in order.get_basket_items %}
+                <tr>
+                  <td id="lines">{{ item }}</td>
+                  <td id="lines">£{{ item.product.price }}</td>
+                </tr>
+              {% endfor %}
+            <tr>
+             <td  style="text-align: right"><strong>Total</strong> </td>
+             <td id="lines"><strong>£{{ order.get_basket_sum }}</strong></td>
+            </tr>
+            <tr>
+             <td  style="text-align: right"><strong>VAT @ 20%</strong> </td>
+             <td id="lines"><strong>£{{ order.get_basket_vat }}</strong></td>
+            </tr>
+            <tr>
+             <td  style="text-align: right"><strong>Order Total</strong> </td>
+             <td id="lines"><strong>£{{ order.get_basket_total }}</strong></td>
+            </tr>
+        </table>
+        <div>
+        <div id="paypal-button-container"></div>
+        </div>
+
+      </div>
+     </div>
+    </section>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="https://www.paypal.com/sdk/js?client-id=AcftcPBhlvoYgaCYHZvJjJ2BtInnUAdFbeqsL9i54_1vuzw4NfscVdIh9YvGwQ7iu-tRSjyIvcL5SQLz&currency=GBP&disable-funding=sofort">
+    // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
+    </script>
+
+<script>
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+
+    // Render the PayPal button into #paypal-button-container
+    function initPayPalButton() {
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        "amount": {
+                            "currency_code": "GBP",
+                            "value": "{{ order.get_basket_total }}"
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data) {
+                const url = "{% url 'shopping_basket:process_payment' %}"
+                return fetch(url,{
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-CSRFToken': csrftoken
+                    },
+                    body: JSON.stringify({
+                        orderID: data.orderID
+                    })
+                }).then(function () {
+                    location.href = "{% url 'shopping_basket:payment_successful' %}";
+                   })
+            },
+        }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+
+</script>
+{% endblock script %}
