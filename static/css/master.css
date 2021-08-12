@@ -1,0 +1,152 @@
+body {
+    background-color: #000000;
+    margin: 0;
+    position: relative;
+    padding-bottom: 100px; //height of the footer
+}
+
+#bg{
+    width: 40px;
+}
+
+#brand {
+    font-family: 'Nosifer', cursive;
+    font-size: 1.5em;
+
+}
+
+.right-col {
+    background-color: rgba(52,58,64,0.72);
+    border: 2px solid #7c7c7c;
+    border-radius: 10px;
+    color: #fefefe;
+}
+
+.nav-line {
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    border-bottom-width: 2px ;
+}
+
+.a-tag {
+    color: white;
+    text-decoration: none;
+}
+
+#img-size{
+    width: 200px;
+    height: 200px;
+}
+
+#product-box{
+    background-color: rgba(52,58,64,0.72);
+    border: 2px solid #fefefe;
+    border-radius: 10px;
+    color: #fefefe;
+}
+
+.footer {
+    background-color: rgba(52, 58, 64, 0.72);
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    border-top: red solid 2px;
+}
+
+/*   CSS for the side menu   */
+
+
+nav#sidebar-nav {
+    position: relative;
+    /*margin-top: 5px;*/
+    width: auto;
+    font-family: Arial, sans-serif;
+    border: 2px solid #7c7c7c;
+    border-radius: 6px;
+}
+nav#sidebar-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav#sidebar-nav ul li {
+  /* Sub Menu */
+}
+nav#sidebar-nav ul li a {
+    display: block;
+    background: rgba(52,58,64,0.72);
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+nav#sidebar-nav ul li a:hover {
+    background: #ffffff;
+    color: #7c7c7c;
+}
+nav#sidebar-nav ul li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+nav#sidebar-nav ul ul {
+}
+
+nav#sidebar-nav ul li ul li a {
+	border-left: 4px solid transparent;
+	padding: 10px 20px;
+}
+nav#sidebar-nav ul li ul li a:hover {
+	background: #ffffff;
+	border-left: 4px solid #ff0000;
+}
+#type {
+  border-bottom: 1px solid #7c7c7c;
+}
+#type_one {
+  border-bottom: 1px solid #7c7c7c;
+  border-top: 1px solid #7c7c7c;
+}
+
+div table tbody tr td {
+    color: white;
+}
+
+#lines {
+    border: white solid 1px;
+}
+
+tr.text-center th {
+    color: #fefefe;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#id_username{
+    margin-bottom: 2px;
+}
+
+#orders-style {
+    color: white;
+    width: 90%;
+    text-align: center;
+}
+
+#paypal-button-container {
+    width: 60%;
+    float: right;
+}
