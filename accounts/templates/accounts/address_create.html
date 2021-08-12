@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content_two %}
+<div class="col right-col">
+<div class="container">
+  <form class="" method="POST" id="update-form">
+  {% csrf_token %}
+    <table>
+    <h4 class="text-uppercase mb-3 pb-2 mt-2 border-bottom">Add address</h4>
+        {% for field in form %}
+        <p style="color: #c82333">{{ field.errors | striptags }}</p>
+    <tr>
+        <td>{{ field.label_tag | striptags }}</td>
+        <td class="pl-3">{{ field }}</td>
+    </tr>
+        {% endfor %}
+</table>
+  </form>
+    <p></p>
+    <button class="btn btn-outline-light btn-sm" type="submit" form="update-form">Save</button>
+    <a class="btn btn-outline-light btn-sm" href="{% url 'accounts:address_view' %}">Back</a>
+    <p></p>
+</div>
+</div>
+{% endblock %}

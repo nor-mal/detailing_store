@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content_two %}
+<div class="right-col p-3">
+    {% csrf_token %}
+ <h4 class="text-uppercase mb-3 pb-2 border-bottom">Address list:</h4>
+       {% for address in address_list %}
+       <p><a class="btn btn-danger text-uppercase" style="color: #fefefe" href="{% url 'accounts:address_update' address.id %}">
+           {{ forloop.counter }}. {{ address.address_name }}</a></p>
+       {% endfor %}
+<a class="btn btn-outline-light btn-sm" href="{% url 'accounts:address_create' %}">Add new</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content_two %}
+<div class="col right-col p-4">
+<div class="container">
+<form method="post">{% csrf_token %}
+    <p style="color: #fefefe">Are you sure you want to delete "{{ object.address_name }}"?</p>
+    <button class="btn btn-outline-light btn-sm" type="submit" value="Confirm">Confirm</button>
+    <a class="btn btn-outline-light btn-sm" href="{% url 'accounts:address_view' %}">Back</a>
+     <br>
+    <br>
+</form>
+</div>
+</div>
+{% endblock %}

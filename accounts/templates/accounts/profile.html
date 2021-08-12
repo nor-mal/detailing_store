@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content_two %}
+<div class="col right-col p-3">
+  <form class="" method="POST">
+    {% csrf_token %}
+  <table style="text-align: left">
+  <h4 class="text-uppercase mb-3 pb-2 border-bottom">User profile</h4>
+       {% for item in u_form %}
+    <tr>
+        <td>{{ item.label_tag }}</td>
+        <td>{{ item }}</td>
+    </tr>
+       {% endfor %}
+    {% for item in c_form %}
+    <tr>
+        <td>{{ item.label_tag }}</td>
+        <td>{{ item }}</td>
+    </tr>
+       {% endfor %}
+  </table>
+  <br>
+    <button class="btn btn-outline-light btn-sm"  style="margin-left: 10em; margin-bottom: 1em;" type="submit">Update</button>
+  <br>
+  </form>
+</div>
+{% endblock %}
