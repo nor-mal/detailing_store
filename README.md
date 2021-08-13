@@ -1,10 +1,16 @@
 # detailing_store
 E-commerce web app build with Python, Django, SQLite, JQuery and JS
 
-This Django project runs in the development mode and the below setup guide assumes that it will be run on local machine:
+This Django project runs in the development mode and the below setup guide assumes that it will be run on a local machine:
 
-1. Create your virtual environment to install neccesary packages to run the project.
-  - requirenments.txt included
-  - I am using Anaconda to manage my virtual environments so in my case installation command would look like that:
-  
-    `conda create --name yourenvname`
+1. Create your virtual environment to install necessary packages to run the project
+    `conda create --name yourenvname` - this will be a command to use if you are using Anaconda to manage your virtual environments 
+2. Activate your virtual environment. 
+    `conda activate yourenvname`
+3. Install requried packages to run the project by using requienments.txt file.
+    `conda install --file requirements.txt`
+5. Install PayPal checkout server by typing:
+    `pip install paypal-checkout-serversdk`
+6. You will need to have Paypal sandbox account created to be able to set the below values:
+
+In the de
