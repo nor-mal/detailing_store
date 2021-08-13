@@ -139,4 +139,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
 PAYPAL_TEST = True
 
-PAYPAL_RECEIVER_EMAIL = "sb-af2z16834479@business.example.com"
+PAYPAL_RECEIVER_EMAIL = "Replace this text with your PayPal sandbox business email"
