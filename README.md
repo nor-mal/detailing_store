@@ -35,6 +35,7 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
     `python manage.py runserver`
 
 8. Create admin user if you would like to have access to admin dashboard:
-    `python manage.py createsuperuser`
+    `python manage.py createsuperuser`<br/>
+    Standard users can be added by clicking Sign up button on the main page.
 
-9. The database is preloaded with a 20 fake products so the migrations would not be needed. Standard users can be added by clicking Sign up button on the main page. 
+9. The database is preloaded with a 20 fake products so the migrations would not be needed.  
