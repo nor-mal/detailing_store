@@ -7,6 +7,7 @@ E-commerce web app created with Python, Django, JS and Bootstrap4 that integrate
  * usage of Sessions to pass data between the views,
  * PayPal API integration to process payments.
 
+
 This Django project runs in the development mode and the below setup guide assumes that it will be run on a local machine:
 
 1. Create your virtual environment to install necessary packages to run the project
