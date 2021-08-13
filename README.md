@@ -30,3 +30,11 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
     - in the shopping_basket/templates/shopping_basket/checkout.html file:<br/>
      `<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=GBP&disable-funding=sofort"></script>`<br/>
      Replace YOUR_CLIENT_ID with your sandbox client ID.
+     
+7. Now with your env active you should be able to successfully run the project by usual django command:<br/>
+    `python manage.py runserver`
+
+8. Create admin user if you would like to have access to admin panel:
+    `python manage.py createsuperuser`
+
+9. The database is preloaded with a 20 fake products so the migrations would not be needed. Standard users can be added by clicking Sign up button on the main page. 
