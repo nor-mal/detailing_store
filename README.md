@@ -28,6 +28,5 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
      `self.client_secret = "Replace this text with your PayPal sandbox business CLIENT SECRET"`
      
     - in the shopping_basket/templates/shopping_basket/checkout.html file:<br/>
-     `<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=GBP&disable-funding=sofort">
-    // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
-    </script>`
+     `<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=GBP&disable-funding=sofort"></script>`<br/>
+     Replace YOUR_CLIENT_ID with your sandbox client ID.
