@@ -6,4 +6,6 @@ This Django project runs in the development mode and the below setup guide assum
 1. Create your virtual environment to install neccesary packages to run the project.
   - requirenments.txt included
   - I am using Anaconda to manage my virtual environments so in my case installation command would look like that:
+  '''
     conda create --name conda create --name myenv
+  '''
