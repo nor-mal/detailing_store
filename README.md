@@ -21,7 +21,7 @@ This Django project runs in the development mode and the below setup guide assum
 https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
 6. Following setup would be needed in the project to be able to test the Paypal payments:
     - in the /detailing_store/settings.py file:
-    `PAYPAL_RECEIVER_EMAIL = "Replace this text with your PayPal sandbox business email"`
+     * `PAYPAL_RECEIVER_EMAIL = "Replace this text with your PayPal sandbox business email"`
     
     - in the detailing_store/shopping_basket/paypal.py file:
      `self.client_id = "Replace this text with your PayPal sandbox business CLIENT ID"`
