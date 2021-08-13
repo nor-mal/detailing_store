@@ -11,6 +11,6 @@ This Django project runs in the development mode and the below setup guide assum
     `conda install --file requirements.txt`
 5. Install PayPal checkout server by typing:
     `pip install paypal-checkout-serversdk`dd
-6. You will need to have Paypal sandbox account created to be able to set the below values:
-
-In the de
+6. You will need to have Paypal sandbox account created to be able to set the below values (please visit https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts):
+   - Following changes would need in the project to be made to be able to test the paypal payments:
+de
