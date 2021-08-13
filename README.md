@@ -43,5 +43,5 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
 
 Runing project screenshot:
 
-(https://github.com/Nor-Mal/detailing_store/blob/main/project%20screenshot.png)
+![alt text](https://github.com/Nor-Mal/detailing_store/blob/main/project%20screenshot.png)
 
