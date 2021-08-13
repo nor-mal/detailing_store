@@ -1,11 +1,11 @@
 # detailing_store
 E-commerce web app created with Python, Django, JS and Bootstrap4 that integrates the following concepts:
-    - 
-    - usage of Django authentication system to handle the site access and user authorization – extending User object with one-to-one model,
-    - using Django ORM to perform CRUD operations on SQLite database,
-    - usage of Signals to perform actions triggered by the user,
-    - usage of Sessions to pass data between the views,
-    - PayPal API integration to process payments.
+
+    * usage of Django authentication system to handle the site access and user authorization – extending User object with one-to-one model,
+    * using Django ORM to perform CRUD operations on SQLite database,
+    * usage of Signals to perform actions triggered by the user,
+    * usage of Sessions to pass data between the views,
+    * PayPal API integration to process payments.
 
 This Django project runs in the development mode and the below setup guide assumes that it will be run on a local machine:
 
