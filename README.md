@@ -39,3 +39,7 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
     Standard users can be added by clicking Sign up button on the main page.
 
 9. The database is preloaded with a 20 fake products so the migrations would not be needed.  
+
+
+Runing project screenshot:
+
