@@ -34,7 +34,7 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
 7. Now with your env active you should be able to successfully run the project by using usual django command:<br/>
     `python manage.py runserver`
 
-8. Create admin user if you would like to have access to admin dashboard:
+8. Create admin user if you would like to have access to admin dashboard:</br>
     `python manage.py createsuperuser`<br/>
     Standard users can be added by clicking Sign up button on the main page.
 
