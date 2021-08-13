@@ -24,7 +24,7 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
      `PAYPAL_RECEIVER_EMAIL = "Replace this text with your PayPal sandbox business email"`
     
     - in the detailing_store/shopping_basket/paypal.py file:<br/>
-     `self.client_id = "Replace this text with your PayPal sandbox business CLIENT ID"`
+     `self.client_id = "Replace this text with your PayPal sandbox business CLIENT ID"`<br/>
      `self.client_secret = "Replace this text with your PayPal sandbox business CLIENT SECRET"`
      
     - in the shopping_basket/templates/shopping_basket/checkout.html file:<br/>
