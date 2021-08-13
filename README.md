@@ -45,5 +45,6 @@ Runing project screenshot:
 
 ![alt text](https://github.com/Nor-Mal/detailing_store/blob/main/project%20screenshot.png)
 
-Database vi
+Database visualization diagram:
 
+![alt text](https://github.com/Nor-Mal/detailing_store/blob/main/db%20visualization%20diagram.png)
