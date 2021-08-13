@@ -29,7 +29,7 @@ https://developer.paypal.com/docs/api/overview/#create-sandbox-accounts
      
     - in the shopping_basket/templates/shopping_basket/checkout.html file:<br/>
      `<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=GBP&disable-funding=sofort"></script>`<br/>
-     Replace YOUR_CLIENT_ID with your sandbox client ID.
+     Replace YOUR_CLIENT_ID with your PayPal sandbox client ID.
      
 7. Now with your env active you should be able to successfully run the project by using usual django command:<br/>
     `python manage.py runserver`
